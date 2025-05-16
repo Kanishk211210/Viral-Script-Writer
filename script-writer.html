@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Reel Script Generator - Viral Content Creator Tool</title>
+    <meta name="description" content="Generate viral-ready Instagram, TikTok, and YouTube Shorts scripts instantly with our AI-powered Reel Script Generator.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            background: var(--surface);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Main Content */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Generator Section */
+        .generator-section {
+            background: var(--surface);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.875rem;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.15s ease;
+            background: var(--surface);
+        }
+
+        select:focus, input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+        }
+
+        .generate-btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.15s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .generate-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Script Output */
+        .script-output {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            margin-top: 2rem;
+            white-space: pre-wrap;
+            border: 1px solid var(--border);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+        }
+
+        /* Ad Units */
+        .ad-unit {
+            margin: 2rem 0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        /* Loader */
+        .loader {
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid #e2e8f0;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .generator-section {
+                padding: 1.5rem;
+            }
+
+            .script-output {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 0 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .generate-btn {
+                padding: 0.875rem 1.5rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: linear-gradient(45deg, var(--primary), #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                AI ScriptGen
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Create Viral-Ready <span class="text-gradient">Video Scripts</span> in Seconds</h1>
+            <p>AI-powered script generator for TikTok, Instagram Reels, and YouTube Shorts</p>
+        </section>
+
+        <div class="ad-unit">
+            <!-- AdSense Leaderboard -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="XXXXXXXXXX"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+        </div>
+
+        <section class="generator-section">
+            <form id="scriptForm">
+                <div class="form-group">
+                    <label>🎥 Platform</label>
+                    <select id="platform" required>
+                        <option value="tiktok">TikTok</option>
+                        <option value="instagram">Instagram Reels</option>
+                        <option value="youtube">YouTube Shorts</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>📝 Video Type</label>
+                    <input type="text" id="videoType" placeholder="e.g., Dance Challenge, Product Review" required>
+                </div>
+
+                <div class="form-group">
+                    <label>🎭 Tone</label>
+                    <select id="tone" required>
+                        <option value="funny">Funny 😂</option>
+                        <option value="dramatic">Dramatic 🎭</option>
+                        <option value="inspirational">Inspirational 💡</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>🔑 Keywords</label>
+                    <textarea id="keywords" placeholder="Enter keywords (comma-separated)" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>⏱ Duration (seconds)</label>
+                    <input type="number" id="duration" min="15" max="60" value="30" required>
+                </div>
+
+                <button type="submit" class="generate-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M2 12h20"/>
+                    </svg>
+                    Generate Script
+                </button>
+            </form>
+
+            <div class="loader" id="loading" style="display: none;"></div>
+            <div id="scriptResult" class="script-output" style="display: none;"></div>
+        </section>
+
+        <div class="ad-unit">
+            <!-- AdSense Footer -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="XXXXXXXXXX"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+        </div>
+    </main>
+
+    <script>
+        // Initialize AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+
+        document.getElementById('scriptForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                platform: document.getElementById('platform').value,
+                videoType: document.getElementById('videoType').value.trim(),
+                tone: document.getElementById('tone').value,
+                keywords: document.getElementById('keywords').value.split(',').map(k => k.trim()),
+                duration: document.getElementById('duration').value
+            };
+
+            const loader = document.getElementById('loading');
+            const resultDiv = document.getElementById('scriptResult');
+            
+            loader.style.display = 'block';
+            resultDiv.style.display = 'none';
+
+            setTimeout(() => {
+                loader.style.display = 'none';
+                resultDiv.style.display = 'block';
+                resultDiv.textContent = generateScript(formData);
+            }, 1500);
+        });
+
+        function generateScript(data) {
+            const hooks = {
+                tiktok: ["🚀 Ready? Let's blow up FYP!", "🔥 This is about to go VIRAL...", "💥 3...2...1... ACTION!"],
+                instagram: ["✨ The secret everyone's missing...", "📈 Boost your engagement with...", "🌟 This changed everything..."],
+                youtube: ["🎯 Here's why this matters...", "🧠 The algorithm LOVES this...", "💡 Behind the viral trend..."]
+            };
+
+            const ctas = {
+                funny: "😂 Like if you LOL'd!",
+                dramatic: "😱 Share if this shocked you!",
+                inspirational: "💪 Tag someone who needs this!"
+            };
+
+            return `[${data.platform.toUpperCase()} SCRIPT]
+            
+📌 Platform: ${data.platform.charAt(0).toUpperCase() + data.platform.slice(1)}
+⏰ Duration: ${data.duration} seconds
+🎭 Tone: ${data.tone.charAt(0).toUpperCase() + data.tone.slice(1)}
+
+🔥 OPENING HOOK (0-5s):
+"${hooks[data.platform][Math.floor(Math.random() * 3)]}"
+
+📝 MAIN CONTENT (5-${data.duration-5}s):
+1. Introduce ${data.keywords[0]}
+2. Add ${data.tone} transition
+3. Build anticipation with "${data.keywords[1] || 'key element'}"
+
+📢 CTA (Last 5s):
+"${ctas[data.tone]}"
+
+🏷️ HASHTAGS:
+${data.keywords.slice(0,3).map(k => `#${k.replace(/\s/g, '')}`).join(' ')}
+#${data.platform}Creator #ViralContent`;
+        }
+    </script>
+</body>
+</html>
